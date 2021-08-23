@@ -1,0 +1,26 @@
+
+<main class="container-fluid">
+  <div class="row" *ngIf="cargando">
+    <div class="col-12 text-center">
+      <h3>La información de la ip {{ipActual}} se está cargando</h3>
+      <img src="assets/25.gif">
+    </div>
+  </div>
+  <div *ngIf="!cargando" class="row">
+    <div class="col-12">
+      <div class="text-center mt-2" *ngIf="!cargando">
+        <h2>{{time_zone}}<br>{{country_name}}</h2>
+      </div>
+    </div>
+    <div class="col-12">
+      <h1>HOY</h1>
+      <app-weather-detail [detalles]="detallesHoy"></app-weather-detail>
+    </div>
+
+    <div *ngFor="let detalles of detallesProximos;" class="col-12">
+      <app-weather-detail [detalles]="detalles"></app-weather-detail>
+    </div>
+
+  </div>
+
+</main>
